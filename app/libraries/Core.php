@@ -24,9 +24,14 @@ class Core
         //Instantiate the controller class
         $this->currentController = new $this->currentController;
 
+        //Check for second part of url
         if (isset($url[1])) {
+
+            //Check if method already exists in controller
             if (method_exists($this->currentController, $url[1])) {
                 $this->currentMethod = $url[1];
+
+                //Unset index 
                 unset($url[1]);
             }
         }
